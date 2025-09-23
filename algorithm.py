@@ -23,8 +23,38 @@ def insertion_sort(input_string):
     for i in string_arr:
         print(str(original_arr.index(i))+ ": " + i )
 
+def sort(left, right):
+    merged_array = []
+    i1 = 0
+    i2 = 0
+
+    for i in range(len(left)+len(right)):
+        if i2 == len(right) or (i1 < len(left) and left[i1] < right[i2]):
+            merged_array.append(left[i1])
+            i1 += 1
+        else:
+            merged_array.append(right[i2])
+            i2 += 1
+
+    return merged_array
+
 def merge_sort(input_string):
     print("Performing merge sort...")
-    sorted_array = []
-    print("Input string: " + input_string)
+    string_arr = []
+    original_arr = []
+
+    for i in range(len(input_string)):
+        string_arr.append(input_string[i:len(input_string)])
+
+    original_arr = string_arr.copy()
+    
+    if len(string_arr) <= 1:
+        return string_arr
+    left_half = string_arr[:len(string_arr) // 2]
+    right_half = string_arr[len(string_arr) // 2:]
+
+    sorted_array = sort(left_half, right_half)
+
+    for i in sorted_array:
+        print(str(original_arr.index(i))+ ": " + i )
 
