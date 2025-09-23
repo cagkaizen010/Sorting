@@ -23,6 +23,23 @@ def insertion_sort(input_string):
     for i in string_arr:
         print(str(original_arr.index(i))+ ": " + i )
 
+def merge_sort(input_string):
+    print("Performing merge sort...")
+    string_arr = []
+    original_arr = []
+
+    for i in range(len(input_string)):
+        string_arr.append(input_string[i:len(input_string)])
+
+    original_arr = string_arr.copy()
+    print(string_arr)
+
+    sorted_arr = divide_half(string_arr)
+
+    for i in sorted_arr:
+        print(str(original_arr.index(i))+ ": " + i )
+    
+
 def sort(left, right):
     merged_array = []
     i1 = 0
@@ -38,23 +55,14 @@ def sort(left, right):
 
     return merged_array
 
-def merge_sort(input_string):
-    print("Performing merge sort...")
-    string_arr = []
-    original_arr = []
-
-    for i in range(len(input_string)):
-        string_arr.append(input_string[i:len(input_string)])
-
-    original_arr = string_arr.copy()
-    
+def divide_half(string_arr):
     if len(string_arr) <= 1:
         return string_arr
-    left_half = string_arr[:len(string_arr) // 2]
-    right_half = string_arr[len(string_arr) // 2:]
+    left_half = string_arr[len(string_arr) // 2:]
+    right_half = string_arr[:len(string_arr) // 2]
 
-    sorted_array = sort(left_half, right_half)
-
-    for i in sorted_array:
-        print(str(original_arr.index(i))+ ": " + i )
+    left_half = divide_half(left_half)
+    right_half = divide_half(right_half)
+    
+    return sort(left_half, right_half)
 
