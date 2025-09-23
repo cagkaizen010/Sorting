@@ -32,37 +32,33 @@ def merge_sort(input_string):
         string_arr.append(input_string[i:len(input_string)])
 
     original_arr = string_arr.copy()
-    print(string_arr)
 
-    sorted_arr = divide_half(string_arr)
+    sorted_arr = merge_sort_recursive(string_arr)
 
     for i in sorted_arr:
         print(str(original_arr.index(i))+ ": " + i )
     
 
-def sort(left, right):
-    merged_array = []
-    i1 = 0
-    i2 = 0
-
-    for i in range(len(left)+len(right)):
-        if i2 == len(right) or (i1 < len(left) and left[i1] < right[i2]):
-            merged_array.append(left[i1])
-            i1 += 1
-        else:
-            merged_array.append(right[i2])
-            i2 += 1
-
-    return merged_array
-
-def divide_half(string_arr):
+def merge_sort_recursive(string_arr):
     if len(string_arr) <= 1:
         return string_arr
     left_half = string_arr[len(string_arr) // 2:]
     right_half = string_arr[:len(string_arr) // 2]
 
-    left_half = divide_half(left_half)
-    right_half = divide_half(right_half)
+    left_half = merge_sort_recursive(left_half)
+    right_half = merge_sort_recursive(right_half)
     
-    return sort(left_half, right_half)
+    merged_array = []
+    i1 = 0
+    i2 = 0
+
+    for i in range(len(left_half)+len(right_half)):
+        if i2 == len(right_half) or (i1 < len(left_half) and left_half[i1] < right_half[i2]):
+            merged_array.append(left_half[i1])
+            i1 += 1
+        else:
+            merged_array.append(right_half[i2])
+            i2 += 1
+    
+    return merged_array
 
