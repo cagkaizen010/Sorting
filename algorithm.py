@@ -1,8 +1,12 @@
-   
+import time
+import timeit
+
 #   Group 1: Insertion Sort 
 #   Group 2: Merge Sort
 def insertion_sort(input_string):
-    print("Performing insertion sort...")
+
+    # print("Performing insertion sort...")
+    suffix_arr =[]
 
     string_arr = []
     original_arr = []
@@ -10,7 +14,7 @@ def insertion_sort(input_string):
     for i in range(len(input_string)):
         string_arr.append(input_string[i:len(input_string)])
 
-    original_arr = string_arr.copy()
+    original_arr = string_arr.copy()    # Copy original array to preserve index of starting positions
 
     for i in range(len(string_arr)-1):
         for j in range(i, -1, -1):
@@ -19,12 +23,24 @@ def insertion_sort(input_string):
                 string_arr[j+1] = string_arr[j]
                 string_arr[j] = temp_str
 
-
     for i in string_arr:
-        print(str(original_arr.index(i))+ ": " + i )
+        
+        suffix_arr.append(original_arr.index(i))
+
+    # print(suffix_arr)
+    return suffix_arr
+
+
+    # for i in string_arr:
+    #     print(str(original_arr.index(i))+ ": " + i )
+    # print("Start time: " + str(start_time))
+    # print("End time: " + str(end_time))
+    # print(str(len(input_string)) + " Elapsed time: " + str(end_time-start_time))
 
 def merge_sort(input_string):
-    print("Performing merge sort...")
+    # print("Performing merge sort...")
+
+    suffix_arr = []
     string_arr = []
     original_arr = []
 
@@ -36,7 +52,11 @@ def merge_sort(input_string):
     sorted_arr = merge_sort_recursive(string_arr)
 
     for i in sorted_arr:
-        print(str(original_arr.index(i))+ ": " + i )
+        suffix_arr.append(original_arr.index(i))
+        # print(str(original_arr.index(i))+ ": " + i )
+    return suffix_arr
+
+
     
 
 def merge_sort_recursive(string_arr):
