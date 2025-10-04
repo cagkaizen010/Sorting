@@ -5,7 +5,6 @@ import timeit
 #   Group 2: Merge Sort
 def insertion_sort(input_string):
 
-    # print("Performing insertion sort...")
     suffix_arr =[]
 
     string_arr = []
@@ -31,14 +30,8 @@ def insertion_sort(input_string):
     return suffix_arr
 
 
-    # for i in string_arr:
-    #     print(str(original_arr.index(i))+ ": " + i )
-    # print("Start time: " + str(start_time))
-    # print("End time: " + str(end_time))
-    # print(str(len(input_string)) + " Elapsed time: " + str(end_time-start_time))
 
 def merge_sort(input_string):
-    # print("Performing merge sort...")
 
     suffix_arr = []
     string_arr = []
@@ -53,7 +46,6 @@ def merge_sort(input_string):
 
     for i in sorted_arr:
         suffix_arr.append(original_arr.index(i))
-        # print(str(original_arr.index(i))+ ": " + i )
     return suffix_arr
 
 
