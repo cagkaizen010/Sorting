@@ -52,8 +52,8 @@ def merge_sort(input_string):
 def merge_sort_recursive(string_arr):
     if len(string_arr) <= 1:
         return string_arr
-    left_half = string_arr[len(string_arr) // 2:]
-    right_half = string_arr[:len(string_arr) // 2]
+    left_half = string_arr[:len(string_arr) // 2]
+    right_half = string_arr[len(string_arr) // 2:]
 
     left_half = merge_sort_recursive(left_half)
     right_half = merge_sort_recursive(right_half)
