@@ -13,7 +13,12 @@ import time
 #          x-val: lengths of n
 #          y-val: average running time across k-samples of each n
 def main():
+
+    # Sample Size
+    # Modify k to change the amount of samples for each n 
     k = 50 
+
+
     n_sizes = 6 
 
     alg = "merge"

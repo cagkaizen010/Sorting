@@ -47,8 +47,6 @@ def merge_sort(input_string):
     for i in sorted_arr:
         suffix_arr.append(original_arr.index(i))
     return suffix_arr
-
-
     
 
 def merge_sort_recursive(string_arr):
